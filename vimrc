@@ -8,11 +8,18 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
+
+" Plugin para abrir ficheros de forma rápida con control+p
+" permite tener una lista de mru -> most recent used
 Plugin 'ctrlpvim/ctrlp.vim'
+
 " https://github.com/klen/python-mode
 Plugin  'klen/python-mode'
+
 " https://github.com/bling/vim-airline
 Plugin 'bling/vim-airline'
+
 " https://github.com/tpope/vim-fugitive
 Plugin 'tpope/vim-fugitive'
 
@@ -24,12 +31,6 @@ Plugin 'editorconfig/editorconfig-vim'
 " se lanza con leader leader
 Plugin 'easymotion/vim-easymotion'
 
-" autocompletion
-" https://github.com/Valloric/YouCompleteMe
-" Plugin 'Valloric/YouCompleteMe'
-" necesita compilar mierdas y dependencias y paso
-"
-
 " autocompleta con el tab!
 " https://github.com/ervandew/supertab
 " cuando comenzamos a escribir y le damos al tab aparece un cuadro de
@@ -40,19 +41,13 @@ Plugin 'easymotion/vim-easymotion'
 " duda si completa solo con cosas de los buffers abiertos o de todos  
 Plugin  'ervandew/supertab'
 
-" una shell dentro de vim !
-" https://github.com/vim-scripts/Conque-Shell
-Plugin 'vim-scripts/Conque-Shell'
-
 " https://github.com/jiangmiao/auto-pairs
 " Insert or delete brackets, parens, quotes in pair.
-"
 Plugin 'jiangmiao/auto-pairs'
 
 " meter snippets con 
 " https://github.com/garbas/vim-snipmate
 " este esta mantenido
-
 " snipmate required vim-addon-mw-utils tlib_vim y vim-snipmate
 " snipmate viene sin snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -64,10 +59,31 @@ Plugin 'garbas/vim-snipmate'
 " Es importante para consultar los triggers
 Plugin 'honza/vim-snippets'
 
-
 " https://github.com/alvan/vim-closetag
 " autocierra tags de html
 Plugin 'alvan/vim-closetag'
+
+" https://github.com/airblade/vim-gitgutter
+" muestra las lineas en las que un fichero ha cambiado en comparacion con la
+" version anterior de git 
+Plugin 'airblade/vim-gitgutter'
+
+" /vim-scripts/upAndDown
+" https://github.com/vim-scripts/upAndDown
+Plugin 'jsenin/upAndDown'
+
+
+
+" -- color scheme --
+"
+" Solarized color scheme for better visualization
+" https://github.com/altercation/vim-colors-solarized
+Plugin 'altercation/vim-colors-solarized'
+
+" https://github.com/tomasr/molokai
+" thema mas molon 
+Plugin 'tomasr/molokai'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -190,3 +206,5 @@ set number
 command! E Explore
 
 
+" setear molokai color scheme
+colorscheme molokai
