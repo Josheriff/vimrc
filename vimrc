@@ -208,3 +208,6 @@ command! E Explore
 
 " setear molokai color scheme
 colorscheme molokai
+
+" copiar al clipboarde sistema
+vmap <C-S-C> "+y<CR>"
