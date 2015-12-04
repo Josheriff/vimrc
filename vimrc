@@ -211,3 +211,7 @@ colorscheme molokai
 
 " copiar al clipboarde sistema
 vmap <C-S-C> "+y<CR>"
+
+" agregar ver lineasrelativas
+" es util para lanzar acciones relativas a la posicion actual
+:set relativenumber
