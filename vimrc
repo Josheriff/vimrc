@@ -72,18 +72,15 @@ Plugin 'airblade/vim-gitgutter'
 " https://github.com/vim-scripts/upAndDown
 Plugin 'jsenin/upAndDown'
 
-
+" javascript
+Plugin 'jelera/vim-javascript-syntax'
 
 " -- color scheme --
 "
 " Solarized color scheme for better visualization
-" https://github.com/altercation/vim-colors-solarized
-Plugin 'altercation/vim-colors-solarized'
 
 " https://github.com/tomasr/molokai
-" thema mas molon 
 Plugin 'tomasr/molokai'
-
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -107,7 +104,7 @@ set ignorecase     "ignora las mayusculas en las busquedas
 " controlp custom
 " 
 " Exclude files or directories using Vim's wildignore:
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*     " Linux/MacOSX
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules    " Linux/MacOSX
 
 " Change the default mapping and the default command to invoke CtrlP:
 " f5 refresh cache when controlp is open
@@ -214,4 +211,4 @@ vmap <C-S-C> "+y<CR>"
 
 " agregar ver lineasrelativas
 " es util para lanzar acciones relativas a la posicion actual
-:set relativenumber
+" :set relativenumber
