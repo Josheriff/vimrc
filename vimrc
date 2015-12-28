@@ -75,9 +75,17 @@ Plugin 'jsenin/upAndDown'
 " javascript
 Plugin 'jelera/vim-javascript-syntax'
 
+
+" autoformat with external tools 
+Plugin 'Chiel92/vim-autoformat'
+" install tidy for html format
+" install nvm
+" install js-beauty
+"
+
+
 " -- color scheme --
 "
-" Solarized color scheme for better visualization
 
 " https://github.com/tomasr/molokai
 Plugin 'tomasr/molokai'
@@ -157,20 +165,20 @@ map  N <Plug>(easymotion-prev)
 "
 
 "strip whitespace {
-    function! StripTrailingWhitespace()
-        " Preparation: save last search, and cursor position.
-        let _s=@/
-        let l = line(".")
-        let c = col(".")
-        " do the business:
-        %s/\s\+$//e
-        " clean up: restore previous search history, and cursor position
-        let @/=_s
-        call cursor(l, c)
-    endfunction
-    " }
-    "
-    "
+function! StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " do the business:
+    %s/\s\+$//e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+" }
+"
+"
 "para poder pegar sin que idente formato presionamos f12
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
@@ -212,3 +220,26 @@ vmap <C-S-C> "+y<CR>"
 " agregar ver lineasrelativas
 " es util para lanzar acciones relativas a la posicion actual
 " :set relativenumber
+"
+"
+"
+vnoremap q <esc>:call QuickWrap("'")<cr>
+vnoremap Q <esc>:call QuickWrap('"')<cr>
+
+function! QuickWrap(wrapper)
+    let l:w = a:wrapper
+    let l:inside_or_around = (&selection == 'exclusive') ? ('i') : ('a')
+    normal `>
+    execute "normal " . inside_or_around . escape(w, '\')
+    normal `<
+    execute "normal i" . escape(w, '\')
+    normal `<
+endfunction
+
+
+"" vim autoformat "
+"" autoformat using f3"
+noremap <F3> :Autoformat<CR>
+"" autoformat when save file"
+"au BufWrite * :Autoformat
+
