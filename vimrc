@@ -85,15 +85,32 @@ Plugin 'Chiel92/vim-autoformat'
 " install tidy for html format
 " install nvm
 " install js-beauty
-"
 Plugin 'stephpy/vim-php-cs-fixer'
 
-
-" -- color scheme --
+" syntax checking 
+" https://github.com/scrooloose/syntastic
+Plugin 'scrooloose/syntastic'
+" require php5-cli and phpcs
 "
+" apt-get install php5-cli 
+" mkdir ~/bin
+" cd ~/bin
+" curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+" curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+"
+" -- color scheme --
+" Silversearch, like ack but faster ? 
+" sudo apt-get install silversearcher-ag
+" https://github.com/mileszs/ack.vim
+Plugin 'mileszs/ack.vim'
 
 " https://github.com/tomasr/molokai
 Plugin 'jsenin/molokai'
+
+" visual markers 
+" https://github.com/kshenoy/vim-signature 
+"
+Plugin 'kshenoy/vim-signature' 
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -164,7 +181,7 @@ nnoremap <C-S-T> :b#<CR>
 " ControlP permite user expresiones reguarles 
 "
 " Exclude files or directories using Vim's wildignore:
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules    " Linux/MacOSX
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules,bower_components    " Linux/MacOSX
 
 " let g:ctrlp_map = '<c-p>'
 " CtrlPMixed offers a search for mru, buffer and files all together
@@ -233,3 +250,26 @@ let g:autoformat_verbosemode = 1
 
 
 noremap <F4> :CtrlPFunky<CR>
+
+
+"" sytastic recommended configuration
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+
+"" auto trim spaces 
+autocmd BufWritePre *.php :%s/\s\+$//e
+
+" silver searcher wit ack.vim plugin
+"let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --vimgrep --ignore=composer*'
+
