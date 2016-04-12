@@ -13,3 +13,8 @@ Como poner a funcionar todo esto
 apt-get install editorconfig
 ```
 
+### extras
+Silver search, search quickly inside your project files https://github.com/ggreer/the_silver_searcher
+```
+apt-get install silversearcher-ag
+```
