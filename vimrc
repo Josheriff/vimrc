@@ -164,10 +164,9 @@ command! E Explore
 colorscheme molokai
 
 " copiar al clipboarde sistema
+" require la extesion +clipboard compilada en vim
+" se puede instalar con apt-get install vim-gtk
 vmap <C-S-C> "+y<CR>"
-
-" usar control-t para cambiar al buffer anterior
-nnoremap <C-S-T> :b#<CR>
 
 
 " ==== ControlP ====
@@ -175,6 +174,7 @@ nnoremap <C-S-T> :b#<CR>
 " lo que pernece a un control de versiones que este proximo en nivel de
 " directorios
 " control+f te mueves entre las opciones
+" control+r activa/desactiva la busqueda por expresion regular
 " control+t te lo abre un nuevo tab lo que tengas seleccionado
 " control+y te crea el fichero con ese nombre y los directorios si lo has indicado
 " control+p seleccionas nombre :linea te lo abre y va a esa linea
@@ -255,7 +255,8 @@ let g:autoformat_verbosemode = 1
 
 noremap <F4> :CtrlPFunky<CR>
 noremap <F2> :NERDTreeToggle<CR>
-
+"" next buffer file 
+noremap <C-s-b> :CtrlPBuffer<CR>
 
 "" sytastic recommended configuration
 "
