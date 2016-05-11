@@ -16,7 +16,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 " https://github.com/klen/python-mode
-Plugin  'klen/python-mode'
+" Plugin  'klen/python-mode'
 
 " navegacion de ficheros
 Plugin 'scrooloose/nerdtree'
@@ -54,14 +54,14 @@ Plugin 'jiangmiao/auto-pairs'
 " este esta mantenido
 " snipmate required vim-addon-mw-utils tlib_vim y vim-snipmate
 " snipmate viene sin snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
 
 " snippets para cientos de lenguajes
 " https://github.com/honza/vim-snippets/tree/413b3507fb280aff90add9b1acbb3c49b2d6873d/snippets
 " Es importante para consultar los triggers
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 " https://github.com/alvan/vim-closetag
 " autocierra tags de html
@@ -111,6 +111,10 @@ Plugin 'jsenin/molokai'
 " https://github.com/kshenoy/vim-signature 
 "
 Plugin 'kshenoy/vim-signature' 
+
+
+" autocomplete
+" Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -244,12 +248,13 @@ noremap <F3> :Autoformat<CR>
 "" autoformat when save file"
 "au BufWrite * :Autoformat
 
-let g:formatdef_phpcsfixer = "'php-cs-fixer fix -q -'"
+let g:formatdef_phpcsfixer = "'~/bin/php-cs-fixer fix -q -'"
 let g:formatters_php = ['phpcsfixer']
 let g:autoformat_verbosemode = 1
 
 
 noremap <F4> :CtrlPFunky<CR>
+noremap <F2> :NERDTreeToggle<CR>
 
 
 "" sytastic recommended configuration
@@ -272,4 +277,12 @@ autocmd BufWritePre *.php :%s/\s\+$//e
 " silver searcher wit ack.vim plugin
 "let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ackprg = 'ag --vimgrep --ignore=composer*'
+
+" http://nikhgupta.com/code/using-vim-php-ide-exuberant-ctags-code-browsing/
+set tags=~/.ctags;
+augroup TagFileType
+  autocmd!
+  autocmd FileType * setl tags<
+  autocmd FileType * exe 'setl tags+=~/.ctags/' . &filetype . '/*/tags'
+augroup END
 
