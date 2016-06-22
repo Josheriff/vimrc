@@ -194,6 +194,10 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 " maximum directory depth
 let g:ctrlp_max_depth = 15
 
+" The maximum number of input strings you want CtrlP to remember
+" 5 it's enough for me 
+let g:ctrlp_max_history = 5
+
 
 
 " ==== python-mode ==== 
@@ -287,3 +291,28 @@ augroup TagFileType
   autocmd FileType * exe 'setl tags+=~/.ctags/' . &filetype . '/*/tags'
 augroup END
 
+
+""" autopairs fly mode 
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '¶'
+let g:AutoPairsShortcutFastWrap= 'ł'
+
+
+"" moving across splits 
+"" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+"" control w + x -> swap bufffers order
+"" control w + r -> rotate buffer"
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"" swap words, usseful for swapping params in a function call 
+"" http://vim.wikia.com/wiki/Swapping_characters,_words_and_line
+nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+
+"" http://vim.wikia.com/wiki/Using_tab_pages
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
