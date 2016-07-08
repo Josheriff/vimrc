@@ -15,8 +15,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
+
 " https://github.com/klen/python-mode
-Plugin  'klen/python-mode'
+" Plugin  'klen/python-mode'
 
 " navegacion de ficheros
 Plugin 'scrooloose/nerdtree'
@@ -34,6 +35,9 @@ Plugin 'editorconfig/editorconfig-vim'
 " easymotiion para movere por los ficheros buscando combinaciones de teclas
 " se lanza con leader leader
 Plugin 'easymotion/vim-easymotion'
+"Plugin 'haya14busa/incsearch.vim'
+"Plugin 'haya14busa/incsearch-fuzzy.vim'
+"Plugin 'haya14busa/incsearch-easymotion.vim'
 
 " autocompleta con el tab!
 " https://github.com/ervandew/supertab
@@ -54,14 +58,14 @@ Plugin 'jiangmiao/auto-pairs'
 " este esta mantenido
 " snipmate required vim-addon-mw-utils tlib_vim y vim-snipmate
 " snipmate viene sin snippets
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
 
 " snippets para cientos de lenguajes
 " https://github.com/honza/vim-snippets/tree/413b3507fb280aff90add9b1acbb3c49b2d6873d/snippets
 " Es importante para consultar los triggers
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 
 " https://github.com/alvan/vim-closetag
 " autocierra tags de html
@@ -85,18 +89,41 @@ Plugin 'Chiel92/vim-autoformat'
 " install tidy for html format
 " install nvm
 " install js-beauty
-"
 Plugin 'stephpy/vim-php-cs-fixer'
 
-
-" -- color scheme --
+" syntax checking 
+" https://github.com/scrooloose/syntastic
+Plugin 'scrooloose/syntastic'
+" require php5-cli and phpcs
 "
+" apt-get install php5-cli 
+" mkdir ~/bin
+" cd ~/bin
+" curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+" curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
+"
+" -- color scheme --
+" Silversearch, like ack but faster ? 
+" sudo apt-get install silversearcher-ag
+" https://github.com/mileszs/ack.vim
+Plugin 'mileszs/ack.vim'
 
 " https://github.com/tomasr/molokai
 Plugin 'jsenin/molokai'
 
+" visual markers 
+" https://github.com/kshenoy/vim-signature 
+"
+Plugin 'kshenoy/vim-signature' 
+
 " All of your Plugins must be added before the following line
 call vundle#end() " required
+
+
+
+
+
+
 
 " start filetype
 filetype plugin indent on   " Automatically detect file types.
@@ -143,10 +170,9 @@ command! E Explore
 colorscheme molokai
 
 " copiar al clipboarde sistema
+" require la extesion +clipboard compilada en vim
+" se puede instalar con apt-get install vim-gtk
 vmap <C-S-C> "+y<CR>"
-
-" usar control-t para cambiar al buffer anterior
-nnoremap <C-S-T> :b#<CR>
 
 
 " ==== ControlP ====
@@ -154,6 +180,7 @@ nnoremap <C-S-T> :b#<CR>
 " lo que pernece a un control de versiones que este proximo en nivel de
 " directorios
 " control+f te mueves entre las opciones
+" control+r activa/desactiva la busqueda por expresion regular
 " control+t te lo abre un nuevo tab lo que tengas seleccionado
 " control+y te crea el fichero con ese nombre y los directorios si lo has indicado
 " control+p seleccionas nombre :linea te lo abre y va a esa linea
@@ -164,7 +191,7 @@ nnoremap <C-S-T> :b#<CR>
 " ControlP permite user expresiones reguarles 
 "
 " Exclude files or directories using Vim's wildignore:
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules    " Linux/MacOSX
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules,bower_components    " Linux/MacOSX
 
 " let g:ctrlp_map = '<c-p>'
 " CtrlPMixed offers a search for mru, buffer and files all together
@@ -173,16 +200,19 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 " maximum directory depth
 let g:ctrlp_max_depth = 15
 
+" The maximum number of input strings you want CtrlP to remember
+" 5 it's enough for me 
+let g:ctrlp_max_history = 5
 
 
-" ==== python-mode ==== 
-" quitar el autofolding, me muestra todo el fichero con foldeado y no me gusta
-let g:pymode_folding = 0
 
 
 " airline
 " sino pones laststatus no se muestra la linea de airline
 set laststatus=2
+
+
+
 " si airline se ve sin color hay que leer esto
 " http://vim.wikia.com/wiki/256_colors_in_vim
 " puede ser que sea necesario que tengas que tener esto
@@ -196,19 +226,23 @@ set laststatus=2
 " reemplaza a la busqueda tradiciona con la barra
 " metes texto, das al enter y te deja resaltado la letra que tienes que pulsar
 " para ir a ese texto
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+"" "map  / <Plug>(easymotion-sn)
+"" "omap / <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
 
 
 " python-mode
 "
+" ==== python-mode ==== 
+" quitar el autofolding, me muestra todo el fichero con foldeado y no me gusta
+let g:pymode_folding = 0
+
 " borra los trailing espaces al guardar
 let g:pymode_trim_whitespaces = 1
 " valores python , python3 o disabled
@@ -227,9 +261,68 @@ noremap <F3> :Autoformat<CR>
 "" autoformat when save file"
 "au BufWrite * :Autoformat
 
-let g:formatdef_phpcsfixer = "'php-cs-fixer fix -q -'"
+let g:formatdef_phpcsfixer = "'~/bin/php-cs-fixer fix -q -'"
 let g:formatters_php = ['phpcsfixer']
 let g:autoformat_verbosemode = 1
 
 
 noremap <F4> :CtrlPFunky<CR>
+noremap <F2> :NERDTreeToggle<CR>
+"" next buffer file 
+noremap <C-s-b> :CtrlPBuffer<CR>
+
+"" syntastic 
+"" sytastic recommended configuration
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+
+"" auto trim spaces 
+autocmd BufWritePre *.php :%s/\s\+$//e
+
+" silver searcher wit ack.vim plugin
+"let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --vimgrep --ignore=composer*'
+
+
+""" autopairs fly mode 
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = '¶'
+let g:AutoPairsShortcutFastWrap= 'ł'
+
+
+"" moving across splits 
+"" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
+"" control w + x -> swap bufffers order
+"" control w + r -> rotate buffer"
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"" swap words, usseful for swapping params in a function call 
+"" http://vim.wikia.com/wiki/Swapping_characters,_words_and_line
+"" nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+
+"" http://vim.wikia.com/wiki/Using_tab_pages
+"" nnoremap <C-Left> :tabprevious<CR>
+"" nnoremap <C-Right> :tabnext<CR>
+"" nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+"" nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+set tags=./tags,./../tags,./../../tags,./../../../tags,tags
+
+"" remapings para saltar al tag por que gnome captura algunos conjuntos de
+"" pulsaciones y los gestiona el window manager
+noremap <leader>t :tjump<cr>
+noremap <leader>T :tselect<cr>
+
