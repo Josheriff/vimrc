@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
+
 " https://github.com/klen/python-mode
 " Plugin  'klen/python-mode'
 
@@ -34,6 +35,9 @@ Plugin 'editorconfig/editorconfig-vim'
 " easymotiion para movere por los ficheros buscando combinaciones de teclas
 " se lanza con leader leader
 Plugin 'easymotion/vim-easymotion'
+"Plugin 'haya14busa/incsearch.vim'
+"Plugin 'haya14busa/incsearch-fuzzy.vim'
+"Plugin 'haya14busa/incsearch-easymotion.vim'
 
 " autocompleta con el tab!
 " https://github.com/ervandew/supertab
@@ -112,12 +116,14 @@ Plugin 'jsenin/molokai'
 "
 Plugin 'kshenoy/vim-signature' 
 
-
-" autocomplete
-" Plugin 'Valloric/YouCompleteMe'
-
 " All of your Plugins must be added before the following line
 call vundle#end() " required
+
+
+
+
+
+
 
 " start filetype
 filetype plugin indent on   " Automatically detect file types.
@@ -200,14 +206,13 @@ let g:ctrlp_max_history = 5
 
 
 
-" ==== python-mode ==== 
-" quitar el autofolding, me muestra todo el fichero con foldeado y no me gusta
-let g:pymode_folding = 0
-
 
 " airline
 " sino pones laststatus no se muestra la linea de airline
 set laststatus=2
+
+
+
 " si airline se ve sin color hay que leer esto
 " http://vim.wikia.com/wiki/256_colors_in_vim
 " puede ser que sea necesario que tengas que tener esto
@@ -221,19 +226,23 @@ set laststatus=2
 " reemplaza a la busqueda tradiciona con la barra
 " metes texto, das al enter y te deja resaltado la letra que tienes que pulsar
 " para ir a ese texto
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+"" "map  / <Plug>(easymotion-sn)
+"" "omap / <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
 
 
 " python-mode
 "
+" ==== python-mode ==== 
+" quitar el autofolding, me muestra todo el fichero con foldeado y no me gusta
+let g:pymode_folding = 0
+
 " borra los trailing espaces al guardar
 let g:pymode_trim_whitespaces = 1
 " valores python , python3 o disabled
@@ -262,6 +271,7 @@ noremap <F2> :NERDTreeToggle<CR>
 "" next buffer file 
 noremap <C-s-b> :CtrlPBuffer<CR>
 
+"" syntastic 
 "" sytastic recommended configuration
 "
 set statusline+=%#warningmsg#
@@ -283,14 +293,6 @@ autocmd BufWritePre *.php :%s/\s\+$//e
 "let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ackprg = 'ag --vimgrep --ignore=composer*'
 
-" http://nikhgupta.com/code/using-vim-php-ide-exuberant-ctags-code-browsing/
-set tags=~/.ctags;
-augroup TagFileType
-  autocmd!
-  autocmd FileType * setl tags<
-  autocmd FileType * exe 'setl tags+=~/.ctags/' . &filetype . '/*/tags'
-augroup END
-
 
 """ autopairs fly mode 
 let g:AutoPairsFlyMode = 0
@@ -309,10 +311,18 @@ nnoremap <C-H> <C-W><C-H>
 
 "" swap words, usseful for swapping params in a function call 
 "" http://vim.wikia.com/wiki/Swapping_characters,_words_and_line
-nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+"" nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
 
 "" http://vim.wikia.com/wiki/Using_tab_pages
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
-nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+"" nnoremap <C-Left> :tabprevious<CR>
+"" nnoremap <C-Right> :tabnext<CR>
+"" nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+"" nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+set tags=./tags,./../tags,./../../tags,./../../../tags,tags
+
+"" remapings para saltar al tag por que gnome captura algunos conjuntos de
+"" pulsaciones y los gestiona el window manager
+noremap <leader>t :tjump<cr>
+noremap <leader>T :tselect<cr>
+
