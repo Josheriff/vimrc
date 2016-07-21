@@ -46,7 +46,7 @@ Plugin 'easymotion/vim-easymotion'
 " si es repetir una linea completa con ctrl+x + ctrl-l te muestra lineas
 " completas
 " https://github.com/ervandew/supertab/blob/master/plugin/supertab.vim#L151
-" duda si completa solo con cosas de los buffers abiertos o de todos  
+" duda si completa solo con cosas de los buffers abiertos o de todos
 " mejor neocomplete
 "Plugin  'ervandew/supertab'
 
@@ -54,7 +54,7 @@ Plugin 'easymotion/vim-easymotion'
 " Insert or delete brackets, parens, quotes in pair.
 Plugin 'jiangmiao/auto-pairs'
 
-" meter snippets con 
+" meter snippets con
 " https://github.com/garbas/vim-snipmate
 " este esta mantenido
 " snipmate required vim-addon-mw-utils tlib_vim y vim-snipmate
@@ -74,7 +74,7 @@ Plugin 'alvan/vim-closetag'
 
 " https://github.com/airblade/vim-gitgutter
 " muestra las lineas en las que un fichero ha cambiado en comparacion con la
-" version anterior de git 
+" version anterior de git
 Plugin 'airblade/vim-gitgutter'
 
 " /vim-scripts/upAndDown
@@ -85,26 +85,26 @@ Plugin 'jsenin/upAndDown'
 Plugin 'jelera/vim-javascript-syntax'
 
 
-" autoformat with external tools 
+" autoformat with external tools
 Plugin 'Chiel92/vim-autoformat'
 " install tidy for html format
 " install nvm
 " install js-beauty
 Plugin 'stephpy/vim-php-cs-fixer'
 
-" syntax checking 
+" syntax checking
 " https://github.com/scrooloose/syntastic
 Plugin 'scrooloose/syntastic'
 " require php5-cli and phpcs
 "
-" apt-get install php5-cli 
+" apt-get install php5-cli
 " mkdir ~/bin
 " cd ~/bin
 " curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 " curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
 "
 " -- color scheme --
-" Silversearch, like ack but faster ? 
+" Silversearch, like ack but faster ?
 " sudo apt-get install silversearcher-ag
 " https://github.com/mileszs/ack.vim
 Plugin 'mileszs/ack.vim'
@@ -112,10 +112,10 @@ Plugin 'mileszs/ack.vim'
 " https://github.com/tomasr/molokai
 Plugin 'jsenin/molokai'
 
-" visual markers 
-" https://github.com/kshenoy/vim-signature 
+" visual markers
+" https://github.com/kshenoy/vim-signature
 "
-Plugin 'kshenoy/vim-signature' 
+Plugin 'kshenoy/vim-signature'
 
 
 "" "https://github.com/Shougo/neocomplete.vim
@@ -164,11 +164,11 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 
-" ver numeros de linea 
+" ver numeros de linea
 set number
 
 " fix Explore :E not working I don't know why
-" the e . command is the same that :E 
+" the e . command is the same that :E
 command! E Explore
 
 
@@ -191,10 +191,10 @@ vmap <C-S-C> "+y<CR>"
 " control+y te crea el fichero con ese nombre y los directorios si lo has indicado
 " control+p seleccionas nombre :linea te lo abre y va a esa linea
 " control+x abre con split horizontal
-" control+v abre con split vertical 
+" control+v abre con split vertical
 " f5 refresca la cache de ficheros
 "
-" ControlP permite user expresiones reguarles 
+" ControlP permite user expresiones reguarles
 "
 " Exclude files or directories using Vim's wildignore:
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules,bower_components    " Linux/MacOSX
@@ -207,7 +207,7 @@ let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_max_depth = 15
 
 " The maximum number of input strings you want CtrlP to remember
-" 5 it's enough for me 
+" 5 it's enough for me
 let g:ctrlp_max_history = 5
 
 
@@ -245,7 +245,7 @@ set laststatus=2
 
 " python-mode
 "
-" ==== python-mode ==== 
+" ==== python-mode ====
 " quitar el autofolding, me muestra todo el fichero con foldeado y no me gusta
 let g:pymode_folding = 0
 
@@ -273,11 +273,12 @@ let g:autoformat_verbosemode = 1
 
 
 noremap <F4> :CtrlPFunky<CR>
+noremap <F5> :CtrlPTag<CR>
 noremap <F2> :NERDTreeToggle<CR>
-"" next buffer file 
+"" next buffer file
 noremap <C-s-b> :CtrlPBuffer<CR>
 
-"" syntastic 
+"" syntastic
 "" sytastic recommended configuration
 "
 set statusline+=%#warningmsg#
@@ -292,7 +293,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
-"" auto trim spaces 
+"" auto trim spaces
 autocmd BufWritePre *.php :%s/\s\+$//e
 
 " silver searcher wit ack.vim plugin
@@ -300,13 +301,13 @@ autocmd BufWritePre *.php :%s/\s\+$//e
 let g:ackprg = 'ag --vimgrep --ignore=composer*'
 
 
-""" autopairs fly mode 
+""" autopairs fly mode
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = '¶'
 let g:AutoPairsShortcutFastWrap= 'ł'
 
 
-"" moving across splits 
+"" moving across splits
 "" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 "" control w + x -> swap bufffers order
 "" control w + r -> rotate buffer"
@@ -315,7 +316,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"" swap words, usseful for swapping params in a function call 
+"" swap words, usseful for swapping params in a function call
 "" http://vim.wikia.com/wiki/Swapping_characters,_words_and_line
 "" nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
 
@@ -346,10 +347,10 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
 
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
@@ -365,9 +366,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -395,7 +396,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+    let g:neocomplete#sources#omni#input_patterns = {}
 endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
