@@ -1,6 +1,7 @@
 ## About
+This is my vim config
 
-Como poner a funcionar todo esto
+### Install
 ``` shell
  git clone https://github.com/jsenin/vimrc/ ~/.vim
  cp ~/.vim/vimrc ~/.vimrc
