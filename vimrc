@@ -116,6 +116,9 @@ Plugin 'jsenin/molokai'
 "
 Plugin 'kshenoy/vim-signature' 
 
+Plugin 'jsenin/semantic-highlight.vim'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 
@@ -326,3 +329,8 @@ set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 noremap <leader>t :tjump<cr>
 noremap <leader>T :tselect<cr>
 
+
+"" semantic color
+"" cambia con leader s ( ,s )
+"" https://github.com/jaxbot/semantic-highlight.vim
+:nnoremap <Leader>s :SemanticHighlightToggle<cr>
