@@ -142,6 +142,7 @@ set expandtab                   " Tabs are spaces, not tabs
 set tabstop=4                   " An indentation every four columns
 set softtabstop=4               " Let backspace delete indent
 set ignorecase     "ignora las mayusculas en las busquedas
+set hlsearch     "ilumina los resultados de una busqueda
 
 " tambien funciona agregando set t_Co=256 antes del colorschema
 set t_Co=256
@@ -264,8 +265,9 @@ noremap <F3> :Autoformat<CR>
 "" autoformat when save file"
 "au BufWrite * :Autoformat
 
-let g:formatdef_phpcsfixer = "'~/bin/php-cs-fixer fix -q -'"
 let g:formatters_php = ['phpcsfixer']
+let g:formatdef_phpcsfixer = "'~/bin/php-cs-fixer fix -q -'"
+let g:formatters_python = ['autopep8']
 let g:autoformat_verbosemode = 1
 
 
@@ -333,4 +335,5 @@ noremap <leader>T :tselect<cr>
 "" semantic color
 "" cambia con leader s ( ,s )
 "" https://github.com/jaxbot/semantic-highlight.vim
+let g:semanticEnableFileTypes = ['python']
 :nnoremap <Leader>s :SemanticHighlightToggle<cr>
