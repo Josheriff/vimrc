@@ -195,7 +195,7 @@ vmap <C-S-C> "+y<CR>"
 " ControlP permite user expresiones reguarles 
 "
 " Exclude files or directories using Vim's wildignore:
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules,bower_components    " Linux/MacOSX
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/venv/*,node_modules,bower_components,*.pyc   " Linux/MacOSX
 
 " let g:ctrlp_map = '<c-p>'
 " CtrlPMixed offers a search for mru, buffer and files all together
