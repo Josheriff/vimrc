@@ -39,33 +39,16 @@ Plugin 'easymotion/vim-easymotion'
 "Plugin 'haya14busa/incsearch-fuzzy.vim'
 "Plugin 'haya14busa/incsearch-easymotion.vim'
 
-" autocompleta con el tab!
-" https://github.com/ervandew/supertab
-" cuando comenzamos a escribir y le damos al tab aparece un cuadro de
-" sugerencias, se puede mover con flechas con ctrl-p ctrl-n
-" si es repetir una linea completa con ctrl+x + ctrl-l te muestra lineas
-" completas
-" https://github.com/ervandew/supertab/blob/master/plugin/supertab.vim#L151
-" duda si completa solo con cosas de los buffers abiertos o de todos  
-Plugin  'ervandew/supertab'
 
-" https://github.com/jiangmiao/auto-pairs
-" Insert or delete brackets, parens, quotes in pair.
-Plugin 'jiangmiao/auto-pairs'
-
-" meter snippets con 
-" https://github.com/garbas/vim-snipmate
-" este esta mantenido
-" snipmate required vim-addon-mw-utils tlib_vim y vim-snipmate
-" snipmate viene sin snippets
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
-
-" snippets para cientos de lenguajes
-" https://github.com/honza/vim-snippets/tree/413b3507fb280aff90add9b1acbb3c49b2d6873d/snippets
-" Es importante para consultar los triggers
-" Plugin 'honza/vim-snippets'
+" autocomplete con cache
+" sustiutye a supertab o youcompleteme
+" necesita de neosnippets y neosnippet-snippets con los snips
+" If you have installed the |vimproc| plugin, neocomplete creates the caches asynchronously
+" https://github.com/Shougo/context_filetype.vim/blob/master/doc/context_filetype.txt
+" ctags https://github.com/Shougo/neoinclude.vim/blob/master/doc/neoinclude.txt
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 
 " https://github.com/alvan/vim-closetag
 " autocierra tags de html
@@ -82,7 +65,6 @@ Plugin 'jsenin/upAndDown'
 
 " javascript
 Plugin 'jelera/vim-javascript-syntax'
-
 
 " autoformat with external tools 
 Plugin 'Chiel92/vim-autoformat'
@@ -277,7 +259,8 @@ let g:autoformat_verbosemode = 1
 noremap <F4> :CtrlPFunky<CR>
 noremap <F2> :NERDTreeToggle<CR>
 "" next buffer file 
-noremap <C-s-b> :CtrlPBuffer<CR>
+"" obsolete, collision
+"" noremap <C-s-b> :CtrlPBuffer<CR>
 
 "" syntastic 
 "" sytastic recommended configuration
@@ -339,8 +322,28 @@ noremap <leader>T :tselect<cr>
 "" cambia con leader s ( ,s )
 "" https://github.com/jaxbot/semantic-highlight.vim
 let g:semanticEnableFileTypes = ['python']
-:nnoremap <Leader>s :SemanticHighlightToggle<cr>
+nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 
 " closetag autocierra tags para los ficheros con extensioens
 let g:closetag_filenames = "*.html,*.js"
+
+
+let g:neocomplete#enable_at_startup = 1
+"let g:neosnippet#enable_snipmate_compatibility = 1
+"let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+imap <TAB>     <Plug>(neosnippet_expand_or_jump)
+smap <TAB>     <Plug>(neosnippet_expand_or_jump)
+xmap <TAB>     <Plug>(neosnippet_expand_target)
+map <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+
+" delete back word with control + d 
+nmap <c-b> db
+imap <c-b> <ESC>db
+
