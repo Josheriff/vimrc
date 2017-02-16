@@ -25,3 +25,9 @@ Silver search, search quickly inside your project files https://github.com/ggree
 ```
 apt-get install silversearcher-ag
 ```
+
+### Install formaters
+
+```
+npm -g install js-beautify
+```

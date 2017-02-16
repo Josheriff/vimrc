@@ -115,10 +115,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'jsenin/molokai'
 
 " visual markers 
-" https://github.com/kshenoy/vim-signature 
-"
 Plugin 'kshenoy/vim-signature' 
 
+" colorize vars methods classes ...
 Plugin 'jsenin/semantic-highlight.vim'
 
 
@@ -234,14 +233,14 @@ set laststatus=2
 " reemplaza a la busqueda tradiciona con la barra
 " metes texto, das al enter y te deja resaltado la letra que tienes que pulsar
 " para ir a ese texto
-"" "map  / <Plug>(easymotion-sn)
-"" "omap / <Plug>(easymotion-tn)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide
 " different highlight method and have some other features )
-" map  n <Plug>(easymotion-next)
-" map  N <Plug>(easymotion-prev)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 
 
@@ -341,3 +340,7 @@ noremap <leader>T :tselect<cr>
 "" https://github.com/jaxbot/semantic-highlight.vim
 let g:semanticEnableFileTypes = ['python']
 :nnoremap <Leader>s :SemanticHighlightToggle<cr>
+
+
+" closetag autocierra tags para los ficheros con extensioens
+let g:closetag_filenames = "*.html,*.js"
