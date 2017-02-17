@@ -40,6 +40,10 @@ Plugin 'easymotion/vim-easymotion'
 "Plugin 'haya14busa/incsearch-easymotion.vim'
 
 
+" https://github.com/jiangmiao/auto-pairs
+" Insert or delete brackets, parens, quotes in pair.
+Plugin 'jiangmiao/auto-pairs'
+
 " autocomplete con cache
 " sustiutye a supertab o youcompleteme
 " necesita de neosnippets y neosnippet-snippets con los snips
@@ -49,7 +53,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
-
+Plugin 'Shougo/neopairs.vim'
 " https://github.com/alvan/vim-closetag
 " autocierra tags de html
 Plugin 'alvan/vim-closetag'
@@ -327,6 +331,16 @@ nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
 " closetag autocierra tags para los ficheros con extensioens
 let g:closetag_filenames = "*.html,*.js"
+
+
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"  
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 
 let g:neocomplete#enable_at_startup = 1
