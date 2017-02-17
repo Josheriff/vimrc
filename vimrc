@@ -215,19 +215,6 @@ set laststatus=2
 " https://raw.githubusercontent.com/incitat/eran-dotfiles/master/bin/terminalcolors.py
 " tiene que salir con colores bonitos O_O
 "
-" easy motion permite guscar en el documento de forma muy senciall
-" reemplaza a la busqueda tradiciona con la barra
-" metes texto, das al enter y te deja resaltado la letra que tienes que pulsar
-" para ir a ese texto
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
-" Without these mappings, `n` & `N` works fine. (These mappings just provide
-" different highlight method and have some other features )
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-
 
 
 " python-mode
@@ -339,10 +326,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"  
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-
 let g:neocomplete#enable_at_startup = 1
 "let g:neosnippet#enable_snipmate_compatibility = 1
 "let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
@@ -352,12 +335,22 @@ smap <TAB>     <Plug>(neosnippet_expand_or_jump)
 xmap <TAB>     <Plug>(neosnippet_expand_target)
 map <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-
 " delete back word with control + d 
 nmap <c-b> db
 imap <c-b> <ESC>db
+
+
+" easy motion permite guscar en el documento de forma muy senciall
+" reemplaza a la busqueda tradiciona con la barra
+" metes texto, das al enter y te deja resaltado la letra que tienes que pulsar
+" para ir a ese texto
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
 
