@@ -330,11 +330,6 @@ let g:neocomplete#enable_at_startup = 1
 "let g:neosnippet#enable_snipmate_compatibility = 1
 "let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-imap <TAB>     <Plug>(neosnippet_expand_or_jump)
-smap <TAB>     <Plug>(neosnippet_expand_or_jump)
-xmap <TAB>     <Plug>(neosnippet_expand_target)
-map <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 " delete back word with control + d 
 nmap <c-b> db
 imap <c-b> <ESC>db
@@ -353,4 +348,19 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+" <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ neocomplete#start_manual_complete()
+  function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction"}}}
+
+
+"imap <TAB>     <Plug>(neosnippet_expand_or_jump)
+"smap <TAB>     <Plug>(neosnippet_expand_or_jump)
+"xmap <TAB>     <Plug>(neosnippet_expand_target)
+"map <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+"
 
