@@ -133,6 +133,8 @@ set ignorecase     "ignora las mayusculas en las busquedas
 set hlsearch     "ilumina los resultados de una busqueda
 set incsearch
 
+se cursorline
+se cursorcolumn
 " tambien funciona agregando set t_Co=256 antes del colorschema
 set t_Co=256
 
