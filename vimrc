@@ -17,7 +17,7 @@ Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 
 " https://github.com/klen/python-mode
-" Plugin  'klen/python-mode'
+Plugin  'klen/python-mode'
 
 " navegacion de ficheros
 Plugin 'scrooloose/nerdtree'
@@ -254,6 +254,7 @@ let g:autoformat_verbosemode = 1
 
 noremap <F4> :CtrlPFunky<CR>
 noremap <F2> :NERDTreeToggle<CR>
+noremap <c-X> :NERDTreeToggle<CR>
 "" next buffer file 
 "" obsolete, collision
 "" noremap <C-s-b> :CtrlPBuffer<CR>
@@ -272,6 +273,11 @@ let g:syntastic_check_on_wq = 0
 
 let g:syntastic_php_checkers=['php', 'phpcs']
 let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+
+"" "let g:syntastic_python_checkers=['flake8','pep8','pycodestyle','pyflakes',' python']
+let g:syntastic_python_checkers=['flake8']
+"" "let g:syntastic_python_flake8_exec='flake8 . '
+"" "let g:syntastic_debug = 1
 
 "" auto trim spaces 
 autocmd BufWritePre *.php :%s/\s\+$//e
@@ -364,3 +370,7 @@ omap / <Plug>(easymotion-tn)
 "map <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 "
 
+" Indentation by filetype
+autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd Filetype css setlocal tabstop=2 softtabstop=2 shiftwidth=2
