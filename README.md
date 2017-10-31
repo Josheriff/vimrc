@@ -3,12 +3,14 @@ This is my vim config forked from a teammete and changed
 
 ## Usufull for starting:
 
+```
 CTRL + X == NERDTree
-   CTRL + S == Open file in left split of the workspace
+   CTRL + S == Open file in left split of the workspace   
    ENTER == Open file in right split or full screen
 CTRL + P == Look for file
-CTRL + WW == Change "tab
+CTRL + WW == Change "tab"
 
+```
 
 ### Install
 ``` shell
