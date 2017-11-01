@@ -11,96 +11,37 @@ Plugin 'VundleVim/Vundle.vim'
 
 
 " Plugin para abrir ficheros de forma rápida con control+p
-" permite tener una lista de mru -> most recent used
+
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 
-" https://github.com/klen/python-mode
-Plugin  'klen/python-mode'
-
 " navegacion de ficheros
 Plugin 'scrooloose/nerdtree'
 
-" https://github.com/bling/vim-airline
+" Los colores de abajo
 Plugin 'bling/vim-airline'
-
-" Supuestamente linea de comandos, comentado
-" por no saber muy bien como usarlo
-" https://github.com/tpope/vim-fugitive
-" Plugin 'tpope/vim-fugitive'
 
 "editorconfig/editorconfig-vim
 "compatibilidad con otros ids con editorconfig
-"Plugin 'editorconfig/editorconfig-vim'
+Plugin 'editorconfig/editorconfig-vim'
 
-" easymotiion para movere por los ficheros buscando combinaciones de teclas
-
-"Plugin 'easymotion/vim-easymotion'
-
-
-" https://github.com/jiangmiao/auto-pairs
 " Insert or delete brackets, parens, quotes in pair.
 Plugin 'jiangmiao/auto-pairs'
 
-" autocomplete con cache
-" sustiutye a supertab o youcompleteme
-" necesita de neosnippets y neosnippet-snippets con los snips
-" If you have installed the |vimproc| plugin, neocomplete creates the caches asynchronously
-" https://github.com/Shougo/context_filetype.vim/blob/master/doc/context_filetype.txt
-" ctags https://github.com/Shougo/neoinclude.vim/blob/master/doc/neoinclude.txt
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'Shougo/neopairs.vim'
-" https://github.com/alvan/vim-closetag
-" autocierra tags de html
-"Plugin 'alvan/vim-closetag'
-
-" https://github.com/airblade/vim-gitgutter
 " muestra las lineas en las que un fichero ha cambiado en comparacion con la
 " version anterior de git 
 Plugin 'airblade/vim-gitgutter'
 
-" /vim-scripts/upAndDown
-" https://github.com/vim-scripts/upAndDown
-Plugin 'jsenin/upAndDown'
-
 " javascript
 Plugin 'jelera/vim-javascript-syntax'
 
-" autoformat with external tools 
-Plugin 'Chiel92/vim-autoformat'
-" install tidy for html format
-" install nvm
-" install js-beauty
-Plugin 'stephpy/vim-php-cs-fixer'
-
 " https://github.com/w0rp/ale
 " Asynchronous Lint Engine Build Status
+Plugin 'w0rp/ale'
 
-" syntax checking 
-" https://github.com/scrooloose/syntastic
-" Plugin 'scrooloose/syntastic'
-" require php5-cli and phpcs
-"
-" apt-get install php5-cli 
-" mkdir ~/bin
-" cd ~/bin
-" curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
-" curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar
-"
-" -- color scheme --
-" Silversearch, like ack but faster ? 
-" sudo apt-get install silversearcher-ag
-" https://github.com/mileszs/ack.vim
-Plugin 'mileszs/ack.vim'
-
-" https://github.com/tomasr/molokai
+" molokai color theme
 Plugin 'jsenin/molokai'
-
-" visual markers 
-Plugin 'kshenoy/vim-signature' 
 
 " colorize vars methods classes ...
 Plugin 'jsenin/semantic-highlight.vim'
@@ -108,10 +49,6 @@ Plugin 'jsenin/semantic-highlight.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
-
-
-
-
 
 
 
@@ -146,16 +83,6 @@ let mapleader = ','
 
 "para poder pegar sin que idente formato presionamos f12
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-
-"Indentar CTRL + i
-map <C-i> mzgg=G`z
-
-
-" evitar usar cursores en vim
-"noremap <Up> <NOP>
-"noremap <Down> <NOP>
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
 
 
 " ver numeros de linea 
@@ -205,8 +132,6 @@ let g:ctrlp_max_depth = 15
 let g:ctrlp_max_history = 5
 
 
-
-
 " airline
 " sino pones laststatus no se muestra la linea de airline
 set laststatus=2
@@ -223,33 +148,25 @@ set laststatus=2
 " tiene que salir con colores bonitos O_O
 "
 
+" poder usar tecla borrado en mac
+set backspace=indent,eol,start
 
-" python-mode
-"
-" ==== python-mode ==== 
-" quitar el autofolding, me muestra todo el fichero con foldeado y no me gusta
-let g:pymode_folding = 0
+
 
 " borra los trailing espaces al guardar
 let g:pymode_trim_whitespaces = 1
-" valores python , python3 o disabled
-let g:pymode_python = 'python'
-" desactivar la ventana de doc que da mucho la lata
-let g:pymode_doc = 0
-
-" desactiva la deteccion automatica de virtualenv
-" soluciona el warning de activate_this.pỳ
-let g:pymode_virtualenv = 0
-
 
 "" vim autoformat "
 "" autoformat using f3"
 noremap <F3> :Autoformat<CR>
-"" autoformat when save file"
-"au BufWrite * :Autoformat
+map <C-i> mzgg=G`z
 
-let g:formatters_php = ['phpcsfixer']
-let g:formatdef_phpcsfixer = "'~/bin/php-cs-fixer fix -q -'"
+"" autoformat when save file"
+augroup autoindent
+    au!
+    autocmd BufWritePre * :normal migg=G`i
+augroup End
+
 let g:formatters_python = ['autopep8']
 let g:autoformat_verbosemode = 1
 
@@ -273,16 +190,10 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
-"" "let g:syntastic_python_checkers=['flake8','pep8','pycodestyle','pyflakes',' python']
+
 let g:syntastic_python_checkers=['flake8']
-"" "let g:syntastic_python_flake8_exec='flake8 . '
-"" "let g:syntastic_debug = 1
 
-"" auto trim spaces 
-autocmd BufWritePre *.php :%s/\s\+$//e
 
 " silver searcher wit ack.vim plugin
 "let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -304,16 +215,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-"" swap words, usseful for swapping params in a function call 
-"" http://vim.wikia.com/wiki/Swapping_characters,_words_and_line
-"" nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
-
-"" http://vim.wikia.com/wiki/Using_tab_pages
-"" nnoremap <C-Left> :tabprevious<CR>
-"" nnoremap <C-Right> :tabnext<CR>
-"" nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-"" nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
-
 set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 
 "" remapings para saltar al tag por que gnome captura algunos conjuntos de
@@ -324,7 +225,6 @@ noremap <leader>T :tselect<cr>
 
 "" semantic color
 "" cambia con leader s ( ,s )
-"" https://github.com/jaxbot/semantic-highlight.vim
 let g:semanticEnableFileTypes = ['python']
 nnoremap <Leader>s :SemanticHighlightToggle<cr>
 
@@ -364,13 +264,6 @@ omap / <Plug>(easymotion-tn)
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
   endfunction"}}}
-
-
-"imap <TAB>     <Plug>(neosnippet_expand_or_jump)
-"smap <TAB>     <Plug>(neosnippet_expand_or_jump)
-"xmap <TAB>     <Plug>(neosnippet_expand_target)
-"map <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-"
 
 " Indentation by filetype
 autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2
