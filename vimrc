@@ -147,6 +147,9 @@ let mapleader = ','
 "para poder pegar sin que idente formato presionamos f12
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
+"Indentar CTRL + i
+map <C-i> mzgg=G`z
+
 
 " evitar usar cursores en vim
 "noremap <Up> <NOP>
