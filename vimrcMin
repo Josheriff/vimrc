@@ -70,8 +70,7 @@ colorscheme molokai
 
 " copiar al clipboarde sistema
 " require la extesion +clipboard compilada en vim
-" se puede instalar con apt-get install vim-gtk
-" vmap <C-S-C> "+y<CR>"
+
 
 vnoremap <C-C> "+yZ
 map <C-V>       "+gP"
@@ -90,6 +89,11 @@ let g:ctrlp_max_history = 5
 "Copy CTRL+D TO CTRL+J
 :map <C-k> <C-u>
 :map <C-j> <C-d>
+
+" Map Ctrl + S to save in any mode
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
 
 
 " airline
