@@ -1,4 +1,16 @@
-rir ficheros de forma rápida con control+p
+" The following lines are required by vundle vim plugin manager
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" All plugins should be placed here
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'The-NERD-tree'
+Plugin 'fatih/vim-go'
+
+" Plugin para abrir ficheros de forma rápida con control+p
 " permite tener una lista de mru -> most recent used
 
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -87,6 +99,9 @@ let g:go_fmt_command = "goimports"
 " Now you can delete things out of you session
 
 set backspace=indent,eol,start
+
+" Macvim color not default white
+let macvim_skip_colorscheme=1
 
 " Remove all trailing spaces on save
 " http://vimcasts.org/episodes/tidying-whitespace
