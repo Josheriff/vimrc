@@ -48,8 +48,16 @@ set expandtab
 set autoindent
 
 " Autocomplete Config
+
 set completeopt+=menuone
 let g:mucomplete#enable_auto_at_startup = 1
+"configure the autocomp
+inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+
+set completeopt+=noselect
+
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
@@ -60,12 +68,6 @@ map <C-x> :NERDTreeToggle<CR>
 vnoremap <C-C> "+yZ
 map <C-V>       "+gP"
 
-"configure the autocomp
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-
-set completeopt+=noselect
 
 "" Configuración del Ctrl+P
 
