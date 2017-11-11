@@ -1,16 +1,4 @@
-" The following lines are required by vundle vim plugin manager
-
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" All plugins should be placed here
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'The-NERD-tree'
-Plugin 'fatih/vim-go'
-
-" Plugin para abrir ficheros de forma rápida con control+p
+rir ficheros de forma rápida con control+p
 " permite tener una lista de mru -> most recent used
 
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -48,16 +36,8 @@ set expandtab
 set autoindent
 
 " Autocomplete Config
-
 set completeopt+=menuone
 let g:mucomplete#enable_auto_at_startup = 1
-"configure the autocomp
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-
-set completeopt+=noselect
-
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
@@ -68,6 +48,12 @@ map <C-x> :NERDTreeToggle<CR>
 vnoremap <C-C> "+yZ
 map <C-V>       "+gP"
 
+"configure the autocomp
+inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
+inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
+inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
+
+set completeopt+=noselect
 
 "" Configuración del Ctrl+P
 
@@ -96,6 +82,11 @@ set laststatus=2
 
 " Default golang formater
 let g:go_fmt_command = "goimports"
+
+" Backspace hack on Mac
+" Now you can delete things out of you session
+
+set backspace=indent,eol,start
 
 " Remove all trailing spaces on save
 " http://vimcasts.org/episodes/tidying-whitespace
