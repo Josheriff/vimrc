@@ -26,6 +26,8 @@ Plugin 'jiangmiao/auto-pairs'
 " Auto Complete
 Plugin 'lifepillar/vim-mucomplete'
 
+" Pep8 flex
+Plugin 'andviro/flake8-vim'
 
 call vundle#end()
 
@@ -87,6 +89,10 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+"pep8 auto check erros on buffer
+let g:PyFlakeOnWrite = 1
+
+:autocmd BufWritePre *.py :PyFlakeAuto
 
 " airline
 " sino pones laststatus no se muestra la linea de airline
