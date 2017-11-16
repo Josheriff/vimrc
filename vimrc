@@ -23,16 +23,21 @@ Plugin 'bling/vim-airline'
 " Auto keys () {} etc...
 Plugin 'jiangmiao/auto-pairs'
 
-" Auto Complete
-Plugin 'lifepillar/vim-mucomplete'
+" Auto Complete?
+" Plugin 'ervandew/supertab'
 
-" Pep8 flex
+" Plugin autocomplete
+Plugin 'Valloric/YouCompleteMe'
+
+" Plugin pep8 flakes
 Plugin 'andviro/flake8-vim'
 
 call vundle#end()
 
-" Syntax coloring and filetype detection
+"Syntax coloring and filetype detection
+
 syntax on
+
 filetype plugin indent on
 
 " utf-8 encoding
@@ -49,25 +54,25 @@ set smarttab
 set expandtab
 set autoindent
 
-" Autocomplete Config
-set completeopt+=menuone
-let g:mucomplete#enable_auto_at_startup = 1
+"activate clipboard
+set clipboard=unnamed
+
+"Navigate tabs
+map <C-Right> :tabnext<CR>
+map <C-Left> :tabprevious<CR>
+"pep8 auto check erros on buffer
+let g:PyFlakeOnWrite = 1
+
+:autocmd BufWritePre *.py :PyFlakeAuto
+
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
 " copiar al clipboarde sistema
 " require la extesion +clipboard compilada en vim
 
-
 vnoremap <C-C> "+yZ
 map <C-V>       "+gP"
-
-"configure the autocomp
-inoremap <expr> <c-e> mucomplete#popup_exit("\<c-e>")
-inoremap <expr> <c-y> mucomplete#popup_exit("\<c-y>")
-inoremap <expr>  <cr> mucomplete#popup_exit("\<cr>")
-
-set completeopt+=noselect
 
 "" Configuración del Ctrl+P
 
@@ -83,16 +88,6 @@ let g:ctrlp_max_history = 5
 "Copy CTRL+D TO CTRL+J
 :map <C-k> <C-u>
 :map <C-j> <C-d>
-
-" Map Ctrl + S to save in any mode
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
-
-"pep8 auto check erros on buffer
-let g:PyFlakeOnWrite = 1
-
-:autocmd BufWritePre *.py :PyFlakeAuto
 
 " airline
 " sino pones laststatus no se muestra la linea de airline
