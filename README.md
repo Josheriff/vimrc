@@ -1,3 +1,7 @@
+# NEED TO CHECK IF YOU ARE GOING TO USE VIM
+
+https://github.com/xmementoit/vim-ide
+
 ## About
 This is my vim config forked from a teammete and changed
 
