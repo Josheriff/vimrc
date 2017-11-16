@@ -58,6 +58,11 @@ set autoindent
 "activate clipboard
 set clipboard=unnamed
 
+"Navigate tabs
+map <C-Right> :tabnext<CR>
+map <C-Left> :tabprevious<CR>
+
+
 "pep8 auto check erros on buffer
 let g:PyFlakeOnWrite = 1
 
