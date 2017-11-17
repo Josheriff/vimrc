@@ -47,6 +47,9 @@ set encoding=utf-8
 " Show line numbers
 set number
 
+" but not copy numbers in copy paste
+se mouse+=a
+
 " Indentation
 set tabstop=4
 set softtabstop=4
