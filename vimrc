@@ -23,14 +23,8 @@ Plugin 'bling/vim-airline'
 " Auto keys () {} etc...
 Plugin 'jiangmiao/auto-pairs'
 
-" Auto Complete?
-" Plugin 'ervandew/supertab'
-
 " Plugin autocomplete
 Plugin 'Valloric/YouCompleteMe'
-
-" Plugin pep8 flakes
-Plugin 'andviro/flake8-vim'
 
 call vundle#end()
 
@@ -57,16 +51,13 @@ set smarttab
 set expandtab
 set autoindent
 
+
 "activate clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 "Navigate tabs
 map <C-Right> :tabnext<CR>
 map <C-Left> :tabprevious<CR>
-"pep8 auto check erros on buffer
-let g:PyFlakeOnWrite = 1
-
-:autocmd BufWritePre *.py :PyFlakeAuto
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
@@ -76,6 +67,7 @@ map <C-x> :NERDTreeToggle<CR>
 
 vnoremap <C-C> "+yZ
 map <C-V>       "+gP"
+
 
 "" Configuración del Ctrl+P
 
