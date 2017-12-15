@@ -26,6 +26,12 @@ Plugin 'jiangmiao/auto-pairs'
 " Plugin autocomplete
 Plugin 'Valloric/YouCompleteMe'
 
+" Linter
+Plugin 'w0rp/ale'
+
+" Molokai Scheme
+Plugin 'tomasr/molokai'
+
 call vundle#end()
 
 "Syntax coloring and filetype detection
@@ -56,8 +62,8 @@ set autoindent
 set clipboard=unnamedplus
 
 "Navigate tabs
-map <C-Right> :tabnext<CR>
-map <C-Left> :tabprevious<CR>
+map <C-N> :tabnext<CR>
+" map <C-N> :tabprevious<CR>
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
@@ -90,6 +96,15 @@ set laststatus=2
 
 " Default golang formater
 let g:go_fmt_command = "goimports"
+
+" ALE configuration
+let g:ale_linters = {
+\   'python': ['pylint'],
+\}
+let g:ale_sign_error = '!!'
+let g:ale_sign_warning = '??'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_set_highlights = 0
 
 " Backspace hack on Mac
 " Now you can delete things out of you session
