@@ -29,6 +29,10 @@ Plugin 'Valloric/YouCompleteMe'
 " Linter
 Plugin 'w0rp/ale'
 
+" JSX syntax
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
 " Molokai Scheme
 Plugin 'tomasr/molokai'
 
@@ -60,6 +64,9 @@ set autoindent
 
 "activate clipboard
 set clipboard=unnamedplus
+
+"Activate JSX sintax in JS files
+let g:jsx_ext_required = 0
 
 "Navigate tabs
 map <C-N> :tabnext<CR>
