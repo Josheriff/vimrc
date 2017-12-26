@@ -36,6 +36,9 @@ Plugin 'mxw/vim-jsx'
 " Molokai Scheme
 Plugin 'tomasr/molokai'
 
+" Nova Scheme
+Plugin 'trevordmiller/nova-vim'
+
 call vundle#end()
 
 "Syntax coloring and filetype detection
@@ -120,6 +123,9 @@ set backspace=indent,eol,start
 
 " Macvim color not default white
 let macvim_skip_colorscheme=1
+
+" Default colorscheme nova
+colorscheme nova
 
 " Remove all trailing spaces on save
 " http://vimcasts.org/episodes/tidying-whitespace
