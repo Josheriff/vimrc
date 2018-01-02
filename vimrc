@@ -33,75 +33,68 @@ Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
-" Molokai Scheme
-Plugin 'tomasr/molokai'
-
 " Nova Scheme
 Plugin 'trevordmiller/nova-vim'
 
 call vundle#end()
 
 "Syntax coloring and filetype detection
+"utf encoding, Show line Numbers
+"not copy numbers with mouse
+"indentation
+"activating shared clipboard with OS
 
 syntax on
-
-filetype plugin indent on
-
-" utf-8 encoding
 set encoding=utf-8
-
-" Show line numbers
 set number
-
-" but not copy numbers in copy paste
-se mouse+=a
-
-" Indentation
+set mouse+=a
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
 set autoindent
-
-
-"activate clipboard
 set clipboard=unnamedplus
+set backspace=indent,eol,start
+let macvim_skip_colorscheme=1
+
+colorscheme nova
+
+filetype plugin indent on
 
 "Activate JSX sintax in JS files
 let g:jsx_ext_required = 0
 
-"Navigate tabs
+"Navigate tabs Ctrl+n
 map <C-N> :tabnext<CR>
-" map <C-N> :tabprevious<CR>
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
-" copiar al clipboarde sistema
-" require la extesion +clipboard compilada en vim
-
-vnoremap <C-C> "+yZ
-map <C-V>       "+gP"
-
-
-"" Configuración del Ctrl+P
-
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
-" maximum directory depth
-let g:ctrlp_max_depth = 15
-
-" The maximum number of input strings you want CtrlP to remember
-" 5 it's enough for me
-let g:ctrlp_max_history = 5
-
-"Copy CTRL+D TO CTRL+J
+"CTRL+j to jump 50 lines down CTRL+d still working
+"CTRL+K to jump 50 lines up
 :map <C-k> <C-u>
 :map <C-j> <C-d>
 
-" airline
-" sino pones laststatus no se muestra la linea de airline
+" Remove all trailing spaces on save
+function! Preserve(command)
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    execute a:command
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
+
+" Configuración del Ctrl+P
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
+let g:ctrlp_max_depth = 15
+let g:ctrlp_max_history = 5
+
+" airline config
 set laststatus=2
 
 " Default golang formater
@@ -115,27 +108,3 @@ let g:ale_sign_error = '!!'
 let g:ale_sign_warning = '??'
 let g:airline#extensions#ale#enabled = 1
 let g:ale_set_highlights = 0
-
-" Backspace hack on Mac
-" Now you can delete things out of you session
-
-set backspace=indent,eol,start
-
-" Macvim color not default white
-let macvim_skip_colorscheme=1
-
-" Default colorscheme nova
-colorscheme nova
-
-" Remove all trailing spaces on save
-" http://vimcasts.org/episodes/tidying-whitespace
-function! Preserve(command)
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    execute a:command
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-autocmd BufWritePre * :call Preserve("%s/\\s\\+$//e")
