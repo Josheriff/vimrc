@@ -1,5 +1,4 @@
 " The following lines are required by vundle vim plugin manager
-
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,9 +22,6 @@ Plugin 'bling/vim-airline'
 " Auto keys () {} etc...
 Plugin 'jiangmiao/auto-pairs'
 
-" Plugin autocomplete
-Plugin 'Valloric/YouCompleteMe'
-
 " Linter
 Plugin 'w0rp/ale'
 
@@ -33,8 +29,14 @@ Plugin 'w0rp/ale'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
+" Variables colorized
+Plugin 'jsenin/semantic-highlight.vim'
+
 " Nova Scheme
 Plugin 'trevordmiller/nova-vim'
+
+" 16 color scheme
+Plugin 'noahfrederick/vim-noctu'
 
 call vundle#end()
 
@@ -57,10 +59,15 @@ set autoindent
 set clipboard=unnamedplus
 set backspace=indent,eol,start
 let macvim_skip_colorscheme=1
-
 colorscheme nova
+"colorscheme noctu
+
+"background hack for tmate
+set t_ut=
 
 filetype plugin indent on
+
+let g:semanticEnableFileTypes = ['python']
 
 "Activate JSX sintax in JS files
 let g:jsx_ext_required = 0
