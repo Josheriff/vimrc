@@ -2,6 +2,18 @@
 
 https://github.com/xmementoit/vim-ide
 
+## NEED TO DO TO WORK ON TMUX OR TMATE GOOD COLORS :D
+
+```
+need to add in the .bash_profile:
+
+[[ $TMUX = "" ]] && export TERM="xterm-256color"
+
+in .tmux.conf:
+
+set -g default-terminal "xterm-256color"
+```
+
 ## About
 This is my vim config forked from a teammete and changed
 
