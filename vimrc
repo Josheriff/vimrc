@@ -25,6 +25,10 @@ Plugin 'jiangmiao/auto-pairs'
 " Auto C-tags misc necessary
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
+
+"AutoComplete
+Plugin 'ervandew/supertab'
+
 " Linter
 Plugin 'w0rp/ale'
 
