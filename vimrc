@@ -22,6 +22,9 @@ Plugin 'bling/vim-airline'
 " Auto keys () {} etc...
 Plugin 'jiangmiao/auto-pairs'
 
+" Auto C-tags misc necessary
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 " Linter
 Plugin 'w0rp/ale'
 
@@ -60,14 +63,23 @@ set clipboard=unnamedplus
 set backspace=indent,eol,start
 let macvim_skip_colorscheme=1
 colorscheme nova
-"colorscheme noctu
 
 "background hack for tmate
 set t_ut=
 
+"asyncronous easy-tags
+:let g:easytags_always_enabled = 1
+:let g:easytags_async = 1
+
+"CTRL+j jump to definition thanks to ctags
+"CTRL+K jump back where you where coming from ctags
+:map <C-k> <C-t>
+:map <C-j> <C-]>
+
 filetype plugin indent on
 
-let g:semanticEnableFileTypes = ['python']
+" semantic filetype python
+let g:semanticEnableFileTypes = ['python','javascript']
 
 "Activate JSX sintax in JS files
 let g:jsx_ext_required = 0
@@ -78,10 +90,6 @@ map <C-N> :tabnext<CR>
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
-"CTRL+j to jump 50 lines down CTRL+d still working
-"CTRL+K to jump 50 lines up
-:map <C-k> <C-u>
-:map <C-j> <C-d>
 
 " Remove all trailing spaces on save
 function! Preserve(command)
