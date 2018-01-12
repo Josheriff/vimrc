@@ -1,3 +1,24 @@
+# for MAC install virtualenv and virtualenv wrapper is not just install
+
+
+```
+$ pip install virtualenv
+$ pip install virtualenvwrapper
+```
+
+Next, create a folder that will contain all your virtual environments:
+
+```
+$ mkdir ~/.virtualenvs
+```
+
+Open your .bashrc file and add:
+
+```
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+```
+
 # CTAGS or how to jump to definitions (classes)
 
 Need to install Exuberent tags (CTAGS)
