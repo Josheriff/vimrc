@@ -1,6 +1,20 @@
-# NEED TO CHECK IF YOU ARE GOING TO USE VIM
+# CTAGS or how to jump to definitions (classes)
 
-https://github.com/xmementoit/vim-ide
+Need to install Exuberent tags (CTAGS)
+
+add in home folder .ctags file and write this:
+
+```
+--recurse=yes
+--exclude=.git
+--exclude=vendor/*
+--exclude=node_modules/*
+--exclude=db/*
+--exclude=log/*
+```
+
+CTRL+j will jump to the definition of the class
+CTRL+w will go back
 
 ## NEED TO DO TO WORK ON TMUX OR TMATE GOOD COLORS :D
 
@@ -15,13 +29,13 @@ set -g default-terminal "xterm-256color"
 ```
 
 ## About
-This is my vim config forked from a teammete and changed
+This is my vim config forked from a teammate (www.github.com/jsenin) and changed
 
 ## Usufull for starting:
 
 ```
 CTRL + X == NERDTree
-   CTRL + S == Open file in left split of the workspace   
+   CTRL + S == Open file in left split of the workspace
    ENTER == Open file in right split or full screen
 CTRL + P == Look for file
 CTRL + WW == Change "tab"
