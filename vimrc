@@ -26,6 +26,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 
+" C-tags navigator
+Plugin 'majutsushi/tagbar'
+
 "AutoComplete
 Plugin 'ervandew/supertab'
 
@@ -80,6 +83,9 @@ set t_ut=
 "CTRL+K jump back where you where coming from ctags
 :map <C-k> <C-t>
 :map <C-j> <C-]>
+
+"Tag navigator
+nmap <F8> :TagbarToggle<CR>
 
 filetype plugin indent on
 
