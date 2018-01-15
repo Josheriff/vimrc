@@ -72,8 +72,9 @@ colorscheme nova
 set t_ut=
 
 "asyncronous easy-tags
-:let g:easytags_always_enabled = 1
+":let g:easytags_always_enabled = 1
 :let g:easytags_async = 1
+:let g:easytags_auto_highlight=0
 
 "CTRL+j jump to definition thanks to ctags
 "CTRL+K jump back where you where coming from ctags
