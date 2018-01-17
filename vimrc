@@ -22,6 +22,9 @@ Plugin 'bling/vim-airline'
 " Auto keys () {} etc...
 Plugin 'jiangmiao/auto-pairs'
 
+"HTML snipshet
+Plugin 'mattn/emmet-vim'
+
 " Auto C-tags misc necessary
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
@@ -87,6 +90,10 @@ set t_ut=
 "Tag navigator
 nmap <F8> :TagbarToggle<CR>
 
+" Emmet to CTRL+e
+let g:user_emmet_expandabbr_key='<C-e>'
+
+" Activate indentation
 filetype plugin indent on
 
 " semantic filetype python
