@@ -74,6 +74,8 @@ set expandtab
 set autoindent
 set clipboard=unnamedplus
 set backspace=indent,eol,start
+set splitbelow
+set splitright
 let macvim_skip_colorscheme=1
 colorscheme nova
 "colorscheme desert
