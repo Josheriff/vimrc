@@ -32,6 +32,9 @@ Plugin 'xolox/vim-easytags'
 " C-tags navigator
 Plugin 'majutsushi/tagbar'
 
+" Ag, search in the project
+Plugin 'mileszs/ack.vim'
+
 "AutoComplete
 Plugin 'ervandew/supertab'
 
@@ -73,6 +76,7 @@ set clipboard=unnamedplus
 set backspace=indent,eol,start
 let macvim_skip_colorscheme=1
 colorscheme nova
+"colorscheme desert
 
 "background hack for tmate
 set t_ut=
@@ -89,6 +93,9 @@ set t_ut=
 
 "Tag navigator
 nmap <F8> :TagbarToggle<CR>
+
+"Look for in CTRL+f
+map <C-f> :Ack
 
 " Emmet to CTRL+e
 let g:user_emmet_expandabbr_key='<C-e>'
@@ -108,6 +115,10 @@ map <C-N> :tabnext<CR>
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
+" make ag default searcher for ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Remove all trailing spaces on save
 function! Preserve(command)
