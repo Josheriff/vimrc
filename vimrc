@@ -137,6 +137,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_max_depth = 15
 let g:ctrlp_max_history = 5
+let g:ctrlp_working_path_mode = 0
 
 " airline config
 set laststatus=2
