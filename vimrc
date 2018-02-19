@@ -83,6 +83,10 @@ colorscheme nova
 "background hack for tmate
 set t_ut=
 
+"Search all
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+:set hlsearch
+
 "asyncronous easy-tags
 ":let g:easytags_always_enabled = 1
 :let g:easytags_async = 1
