@@ -25,10 +25,6 @@ Plugin 'jiangmiao/auto-pairs'
 "HTML snipshet
 Plugin 'mattn/emmet-vim'
 
-" Markdown help
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-
 " Auto C-tags misc necessary
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
