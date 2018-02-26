@@ -49,6 +49,9 @@ Plugin 'SirVer/ultisnips'
 " My personal Snippets
 Plugin 'Josheriff/vimsnippets'
 
+" Git :D
+Plugin 'tpope/vim-fugitive'
+
 " JSX syntax
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -128,6 +131,9 @@ let g:UltiSnipsExpandTrigger='<C-n>'
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
+
+" Git Status, use - to add and cc to commit
+map <C-g> :Gstatus
 
 " make ag default searcher for ack
 if executable('ag')
