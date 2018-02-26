@@ -83,7 +83,7 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set autoindent
-set clipboard=unnamedplus
+set clipboard=unnamed
 set backspace=indent,eol,start
 set splitbelow
 set splitright
