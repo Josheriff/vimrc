@@ -33,8 +33,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
 
 " Auto tags generator on save
-Plugin 'craigemery/vim-autotag'
-
+Plugin 'ludovicchabant/vim-gutentags'
 " Ag, search in the project
 Plugin 'mileszs/ack.vim'
 
@@ -43,6 +42,12 @@ Plugin 'ervandew/supertab'
 
 " Linter
 Plugin 'w0rp/ale'
+
+" Snippet engine
+Plugin 'SirVer/ultisnips'
+
+" My personal Snippets
+Plugin 'Josheriff/vimsnippets'
 
 " JSX syntax
 Plugin 'pangloss/vim-javascript'
@@ -118,8 +123,8 @@ let g:semanticEnableFileTypes = ['python','javascript']
 "Activate JSX sintax in JS files
 let g:jsx_ext_required = 0
 
-"Navigate tabs Ctrl+n
-map <C-N> :tabnext<CR>
+" CTRL+n to snippets
+let g:UltiSnipsExpandTrigger='<C-n>'
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
