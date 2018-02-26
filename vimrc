@@ -53,11 +53,6 @@ Plugin 'Josheriff/vimsnippets'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
-" Git integration
-Plugin 'c9s/helper.vim'
-Plugin 'c9s/treemenu.vim'
-Plugin 'c9s/hypergit.vim'
-
 " Variables colorized
 Plugin 'jsenin/semantic-highlight.vim'
 
@@ -133,9 +128,6 @@ let g:UltiSnipsExpandTrigger='<C-n>'
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
-
-" Git menu
-map <C-g> :ToggleGitMenu<CR>
 
 " make ag default searcher for ack
 if executable('ag')

@@ -72,11 +72,6 @@ CTRL + WW == Change "tab"
 ```
 
 ### requirements
-```
-apt-get install editorconfig
-```
-Debian vim, provide multiple vim packages with different supports enabled inside each one.
-I'm using vim-nox for vim python support and vim-gtk for clipboard support
 
 ```
 apt-get install vim vim-nox vim-gtk
