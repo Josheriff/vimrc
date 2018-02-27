@@ -65,6 +65,9 @@ Plugin 'trevordmiller/nova-vim'
 " 16 color scheme
 Plugin 'noahfrederick/vim-noctu'
 
+" Icons and fanzy fonts
+Plugin 'ryanoasis/vim-devicons'
+
 call vundle#end()
 
 "Syntax coloring and filetype detection
