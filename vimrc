@@ -144,7 +144,7 @@ let g:UltiSnipsExpandTrigger='<C-n>'
 map <C-x> :NERDTreeToggle<CR>
 
 " Git Status, use - to add and cc to commit
-map <C-g> :Gstatus
+map <C-g> :Gstatus<CR>
 
 " make ag default searcher for ack
 if executable('ag')
