@@ -91,6 +91,17 @@ let macvim_skip_colorscheme=1
 colorscheme nova
 "colorscheme desert
 
+"clipboard depending on operating system
+if has("unix")
+    let s:uname = system("uname")
+    if s:uname == "Darwin\n"
+        set clipboard=unnamed
+    else
+        set clipboard=unnamedplus
+    endif
+endif
+
+
 "background hack for tmate
 set t_ut=
 
