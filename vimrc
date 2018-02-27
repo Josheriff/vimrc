@@ -51,6 +51,7 @@ Plugin 'Josheriff/vimsnippets'
 
 " Git :D
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/gv.vim'
 
 " JSX syntax
 Plugin 'pangloss/vim-javascript'
@@ -148,6 +149,9 @@ map <C-x> :NERDTreeToggle<CR>
 
 " Git Status, use - to add and cc to commit
 map <C-g> :Gstatus<CR>
+
+" Git log in CTRL+l
+map <C-l> :GV<CR>
 
 " make ag default searcher for ack
 if executable('ag')
