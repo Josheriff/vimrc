@@ -1,3 +1,12 @@
+# For cool fonts and icons:
+https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono
+
+Need to be installed in each operating system and configured to be shown in the terminal
+
+To be used in vim and terminal, you need to download the _mono_ substringed fonts
+
+
+
 # for MAC install virtualenv and virtualenv wrapper is not just install
 
 
