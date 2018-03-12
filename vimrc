@@ -22,6 +22,9 @@ Plugin 'bling/vim-airline'
 " Auto keys () {} etc...
 Plugin 'jiangmiao/auto-pairs'
 
+" Comment Plugin
+Plugin 'scrooloose/nerdcommenter'
+
 "HTML snipshet
 Plugin 'mattn/emmet-vim'
 
@@ -91,9 +94,13 @@ set clipboard=unnamed
 set backspace=indent,eol,start
 set splitbelow
 set splitright
+let mapleader = ","
 let macvim_skip_colorscheme=1
 colorscheme nova
 "colorscheme desert
+
+" Activate indentation
+filetype plugin indent on
 
 "clipboard depending on operating system
 if has("unix")
@@ -132,9 +139,13 @@ map <C-f> :Ack
 " Emmet to CTRL+e
 let g:user_emmet_expandabbr_key='<C-e>'
 
-" Activate indentation
-filetype plugin indent on
-
+"NERDCOMMENTER OPTIONS:
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
 " semantic filetype python
 let g:semanticEnableFileTypes = ['python','javascript']
 
