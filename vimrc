@@ -155,6 +155,9 @@ let g:jsx_ext_required = 0
 " CTRL+n to snippets
 let g:UltiSnipsExpandTrigger='<C-n>'
 
+" Configure where the snippets are
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/vimsnippets/UltiSnips']
+
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
