@@ -1,3 +1,11 @@
+## Install this configuration (Vundle included as plugin manager)
+``` shell
+ git clone https://github.com/Josheriff/vimrc.git ~/.vim
+ cp ~/.vim/vimrc ~/.vimrc
+ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ vim +PluginInstall
+```
+
 ## NEED TO DO TO WORK ON TMUX OR TMATE GOOD COLORS :D
 
 ```
@@ -9,8 +17,20 @@ in .tmux.conf:
 
 set -g default-terminal "xterm-256color"
 ```
+### requirements
 
-## CTAGS or how to jump to definitions (classes)
+```
+apt-get install vim vim-nox vim-gtk
+```
+
+### extras
+Silver search, search quickly inside your project files https://github.com/ggreer/the_silver_searcher
+```
+apt-get install silversearcher-ag
+```
+
+
+### CTAGS or how to jump to definitions (classes)
 
 ### Need to install Exuberent tags (CTAGS) (look for instructions)
 
@@ -28,13 +48,6 @@ add in home folder .ctags file and write this:
 CTRL+j will jump to the definition of the class
 CTRL+w will go back
 
-## Install this configuration (Vundle included as plugin manager)
-``` shell
- git clone https://github.com/Josheriff/vimrc.git ~/.vim
- cp ~/.vim/vimrc ~/.vimrc
- git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
- vim +PluginInstall
-```
 
 # For cool fonts and icons:
 https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraMono
@@ -79,19 +92,6 @@ CTRL + WW == Change "tab"
 
 ```
 
-
-
-### requirements
-
-```
-apt-get install vim vim-nox vim-gtk
-```
-
-### extras
-Silver search, search quickly inside your project files https://github.com/ggreer/the_silver_searcher
-```
-apt-get install silversearcher-ag
-```
 
 ### Install formaters
 
