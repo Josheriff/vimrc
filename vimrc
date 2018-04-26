@@ -135,6 +135,7 @@ nmap <F8> :TagbarToggle<CR>
 
 "Look for in CTRL+f
 map <C-f> :Ack
+nnoremap <leader>f :Ack! <cword> <cr>
 
 " Emmet to CTRL+e
 let g:user_emmet_expandabbr_key='<C-e>'
@@ -189,7 +190,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_max_depth = 15
 let g:ctrlp_max_history = 5
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'r'
 
 " airline config
 set laststatus=2
