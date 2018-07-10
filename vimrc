@@ -28,23 +28,20 @@ Plugin 'scrooloose/nerdcommenter'
 "HTML snipshet
 Plugin 'mattn/emmet-vim'
 
-" Auto C-tags misc necessary
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-
-" C-tags navigator
+" C-tags navigator (actually using ctrl+P)
 Plugin 'majutsushi/tagbar'
 
 " Auto tags generator on save
 Plugin 'ludovicchabant/vim-gutentags'
-" Ag, search in the project
-Plugin 'mileszs/ack.vim'
 
 "AutoComplete
 Plugin 'ervandew/supertab'
 
 " Linter
 Plugin 'w0rp/ale'
+
+"PEP8 F7 to call
+Plugin 'nvie/vim-flake8'
 
 " Snippet engine
 Plugin 'SirVer/ultisnips'
@@ -120,22 +117,11 @@ set t_ut=
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 :set hlsearch
 
-"asyncronous easy-tags
-":let g:easytags_always_enabled = 1
-:let g:easytags_async = 1
-:let g:easytags_auto_highlight=0
-
-"CTRL+j jump to definition thanks to ctags
-"CTRL+K jump back where you where coming from ctags
-:map <C-k> <C-t>
-:map <C-j> <C-]>
+"Using Ctrl+p pluging to jump to definitions
+:map <C-j> :CtrlPtjump<CR>
 
 "Tag navigator
 nmap <F8> :TagbarToggle<CR>
-
-"Look for in CTRL+f
-map <C-f> :Ack
-nnoremap <leader>f :Ack! <cword> <cr>
 
 " Emmet to CTRL+e
 let g:user_emmet_expandabbr_key='<C-e>'
@@ -167,11 +153,6 @@ map <C-g> :Gstatus<CR>
 
 " Git log in CTRL+l
 map <C-l> :GV<CR>
-
-" make ag default searcher for ack
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 " Remove all trailing spaces on save
 function! Preserve(command)
