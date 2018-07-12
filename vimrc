@@ -37,12 +37,6 @@ Plugin 'ludovicchabant/vim-gutentags'
 "AutoComplete
 Plugin 'ervandew/supertab'
 
-" Linter
-Plugin 'w0rp/ale'
-
-"PEP8 F7 to call
-Plugin 'nvie/vim-flake8'
-
 " Snippet engine
 Plugin 'SirVer/ultisnips'
 
@@ -180,10 +174,10 @@ set laststatus=2
 let g:go_fmt_command = "goimports"
 
 " ALE configuration
-let g:ale_linters = {
-\   'python': ['pylint'],
-\}
-let g:ale_sign_error = '!!'
-let g:ale_sign_warning = '??'
-let g:airline#extensions#ale#enabled = 1
-let g:ale_set_highlights = 0
+" let g:ale_linters = {
+" \   'python': ['pylint'],
+" \}
+" let g:ale_sign_error = '!!'
+" let g:ale_sign_warning = '??'
+" let g:airline#extensions#ale#enabled = 1
+" let g:ale_set_highlights = 0
