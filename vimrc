@@ -37,6 +37,9 @@ Plugin 'ludovicchabant/vim-gutentags'
 "AutoComplete
 Plugin 'ervandew/supertab'
 
+"Linter after save
+Plugin 'vim-syntastic/syntastic'
+
 " Snippet engine
 Plugin 'SirVer/ultisnips'
 
