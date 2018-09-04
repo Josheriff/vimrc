@@ -65,7 +65,7 @@ Plugin 'noahfrederick/vim-noctu'
 
 " Icons and fanzy fonts
 Plugin 'ryanoasis/vim-devicons'
-
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 call vundle#end()
 
 "Syntax coloring and filetype detection
