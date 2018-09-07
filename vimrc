@@ -106,7 +106,6 @@ if has("unix")
     endif
 endif
 
-
 "background hack for tmate
 set t_ut=
 
@@ -147,6 +146,7 @@ map <C-x> :NERDTreeToggle<CR>
 
 " Git Status, use - to add and cc to commit
 map <C-g> :Gstatus<CR>
+map <C-f> :Ggr <cword> :/<CR>:bot copen<CR>
 
 " Git log in CTRL+l
 map <C-l> :GV<CR>
