@@ -63,6 +63,9 @@ Plugin 'trevordmiller/nova-vim'
 " 16 color scheme
 Plugin 'noahfrederick/vim-noctu'
 
+" Another scheme
+Plugin 'blueshirts/darcula'
+
 " Icons and fanzy fonts
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -90,8 +93,8 @@ set splitbelow
 set splitright
 let mapleader = ","
 let macvim_skip_colorscheme=1
-colorscheme nova
-"colorscheme desert
+"colorscheme nova
+colorscheme darcula
 
 " Activate indentation
 filetype plugin indent on
