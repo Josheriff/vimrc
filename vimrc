@@ -55,7 +55,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
 " Variables colorized
-Plugin 'jsenin/semantic-highlight.vim'
+" Plugin 'jsenin/semantic-highlight.vim'
 
 " Nova Scheme
 Plugin 'trevordmiller/nova-vim'
