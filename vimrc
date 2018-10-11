@@ -141,9 +141,8 @@ map <C-x> :NERDTreeToggle<CR>
 
 " Git Status, use - to add and cc to commit
 map <C-g> :Gstatus<CR>
-map <C-k> :grep! -R <cword> ./**/*<CR>
-command -nargs=+ ProjSearch grep! -R <args> ./**/*
-map <C-f> :ProjSearch<space>
+map <C-f> :grep! -R <cword> .<CR>
+map <C-k> :ProjSearch<space>
 
 " Git log in CTRL+l
 map <C-l> :GV<CR>
@@ -176,6 +175,9 @@ let g:go_fmt_command = "goimports"
 " Configuracion para que el grep siempre se abra en una pestaña
 augroup myvimrc
     autocmd!
-    autocmd QuickFixCmdPost [^l]* cwindow
-    autocmd QuickFixCmdPost l*    lwindow
+    autocmd QuickFixCmdPost [^l]* cwindow|tabnew|b#
+    autocmd QuickFixCmdPost l*    lwindow|tabnew|b#
 augroup END
+
+" commands
+command -nargs=+ ProjSearch grep! -R <args> .
