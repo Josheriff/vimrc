@@ -141,7 +141,9 @@ map <C-x> :NERDTreeToggle<CR>
 
 " Git Status, use - to add and cc to commit
 map <C-g> :Gstatus<CR>
-map <C-f> :vimgrep <cword> ./**/* <CR>:cw<CR>
+map <C-k> :grep! -R <cword> ./**/*<CR>
+command -nargs=+ ProjSearch grep! -R <args> ./**/*
+map <C-f> :ProjSearch<space>
 
 " Git log in CTRL+l
 map <C-l> :GV<CR>
@@ -170,3 +172,10 @@ set laststatus=2
 
 " Default golang formater
 let g:go_fmt_command = "goimports"
+
+" Configuracion para que el grep siempre se abra en una pestaña
+augroup myvimrc
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
