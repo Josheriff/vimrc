@@ -16,6 +16,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 
+" working directory always the root of the project
+Plugin 'airblade/vim-rooter'
+
 " See the colors down
 Plugin 'bling/vim-airline'
 
@@ -28,14 +31,8 @@ Plugin 'scrooloose/nerdcommenter'
 "HTML snipshet
 Plugin 'mattn/emmet-vim'
 
-" C-tags navigator (actually using ctrl+P)
-Plugin 'majutsushi/tagbar'
-
-" Auto tags generator on save
-Plugin 'ludovicchabant/vim-gutentags'
-
 "AutoComplete
-Plugin 'ervandew/supertab'
+Plugin 'lifepillar/vim-mucomplete'
 
 "Linter after save
 Plugin 'vim-syntastic/syntastic'
@@ -112,14 +109,13 @@ set t_ut=
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 :set hlsearch
 
-"Using Ctrl+p pluging to jump to definitions
-:map <C-j> :CtrlPtjump<CR>
-
-"Tag navigator
-nmap <F8> :TagbarToggle<CR>
-
 " Emmet to CTRL+e
 let g:user_emmet_expandabbr_key='<C-e>'
+
+"Autocomplete configurations
+set completeopt+=menuone
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
 
 "NERDCOMMENTER OPTIONS:
 " Add spaces after comment delimiters by default
@@ -145,7 +141,7 @@ map <C-x> :NERDTreeToggle<CR>
 
 " Git Status, use - to add and cc to commit
 map <C-g> :Gstatus<CR>
-map <C-f> :Ggr <cword> :/<CR>:bot copen<CR>
+map <C-f> :vimgrep <cword> ./**/* <CR>:cw<CR>
 
 " Git log in CTRL+l
 map <C-l> :GV<CR>
@@ -174,12 +170,3 @@ set laststatus=2
 
 " Default golang formater
 let g:go_fmt_command = "goimports"
-
-" ALE configuration
-" let g:ale_linters = {
-" \   'python': ['pylint'],
-" \}
-" let g:ale_sign_error = '!!'
-" let g:ale_sign_warning = '??'
-" let g:airline#extensions#ale#enabled = 1
-" let g:ale_set_highlights = 0
