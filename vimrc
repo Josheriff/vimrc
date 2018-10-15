@@ -43,10 +43,6 @@ Plugin 'SirVer/ultisnips'
 " My personal Snippets
 Plugin 'Josheriff/vimsnippets'
 
-" Git :D
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/gv.vim'
-
 " JSX syntax
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
@@ -83,6 +79,8 @@ set autoindent
 set clipboard=unnamed
 set backspace=indent,eol,start
 set splitbelow
+set listchars=tab:▸\ ,eol:¬
+set list
 set splitright
 let mapleader = ","
 let macvim_skip_colorscheme=1
@@ -117,7 +115,12 @@ set completeopt+=menuone
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
 
-"NERDCOMMENTER OPTIONS:
+" Folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+" NERDCOMMENTER OPTIONS:
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
@@ -139,13 +142,10 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/vimsnippets/UltiSnips']
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
 
-" Git Status, use - to add and cc to commit
-map <C-g> :Gstatus<CR>
+" search
 map <C-f> :grep! -R <cword> .<CR>
 map <C-k> :ProjSearch<space>
 
-" Git log in CTRL+l
-map <C-l> :GV<CR>
 
 " Remove all trailing spaces on save
 function! Preserve(command)
@@ -172,7 +172,7 @@ set laststatus=2
 " Default golang formater
 let g:go_fmt_command = "goimports"
 
-" Configuracion para que el grep siempre se abra en una pestaña
+" Configuracion para que el grep siempre se abra en una pestaña working on it
 augroup myvimrc
     autocmd!
     autocmd QuickFixCmdPost [^l]* cwindow|tabnew|b#
@@ -180,4 +180,7 @@ augroup myvimrc
 augroup END
 
 " commands
-command -nargs=+ ProjSearch grep! -R <args> .
+" command -nargs=+ ProjSearch grep! -R <args> .
+
+"Quickfix close after Enter
+:autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
