@@ -118,7 +118,7 @@ set belloff+=ctrlg " If Vim beeps during completion
 " Folding
 set foldmethod=indent
 set foldlevel=99
-nnoremap <space> za
+nnoremap - za
 
 " NERDCOMMENTER OPTIONS:
 " Add spaces after comment delimiters by default
