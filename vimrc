@@ -28,11 +28,9 @@ Plugin 'jiangmiao/auto-pairs'
 " Comment Plugin
 Plugin 'scrooloose/nerdcommenter'
 
+
 "HTML snipshet
 Plugin 'mattn/emmet-vim'
-
-"AutoComplete
-Plugin 'lifepillar/vim-mucomplete'
 
 "Linter after save
 Plugin 'vim-syntastic/syntastic'
@@ -110,11 +108,6 @@ set t_ut=
 " Emmet to CTRL+e
 let g:user_emmet_expandabbr_key='<C-e>'
 
-"Autocomplete configurations
-set completeopt+=menuone
-set shortmess+=c   " Shut off completion messages
-set belloff+=ctrlg " If Vim beeps during completion
-
 " Folding
 set foldmethod=indent
 set foldlevel=99
@@ -141,6 +134,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/vimsnippets/UltiSnips']
 
 " Open the filesystem tree with Ctrl+X
 map <C-x> :NERDTreeToggle<CR>
+" ignore compiled python files and backups
+let NERDTreeIgnore=['\.pyc$', '\.orig$', '\.egg-info', '__pycache__']
 
 " search
 map <C-f> :grep! -R <cword> .<CR>
@@ -178,9 +173,9 @@ augroup myvimrc
     autocmd QuickFixCmdPost [^l]* cwindow|tabnew|b#
     autocmd QuickFixCmdPost l*    lwindow|tabnew|b#
 augroup END
-
+"
 " commands
-" command -nargs=+ ProjSearch grep! -R <args> .
+command -nargs=+ ProjSearch grep! -R <args> .
 
 "Quickfix close after Enter
 :autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
