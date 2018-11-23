@@ -7,7 +7,6 @@ call vundle#begin()
 " All plugins should be placed here
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'The-NERD-tree'
-Plugin 'fatih/vim-go'
 
 " Plugin para abrir ficheros de forma rápida con control+p
 " permite tener una lista de mru -> most recent used
@@ -51,11 +50,7 @@ Plugin 'jsenin/semantic-highlight.vim'
 " Nova Scheme
 Plugin 'trevordmiller/nova-vim'
 
-" 16 color scheme
-Plugin 'noahfrederick/vim-noctu'
 
-" Icons and fanzy fonts
-Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 
 "Syntax coloring and filetype detection
@@ -82,8 +77,7 @@ set list
 set splitright
 let mapleader = ","
 let macvim_skip_colorscheme=1
-colorscheme nova
-"colorscheme desert
+colorscheme desert
 
 " Activate indentation
 filetype plugin indent on
