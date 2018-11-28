@@ -44,11 +44,8 @@ Plugin 'Josheriff/vimsnippets'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
-" Variables colorized
-Plugin 'jsenin/semantic-highlight.vim'
-
-" Nova Scheme
-Plugin 'trevordmiller/nova-vim'
+" Apprentice Scheme
+Plugin 'romainl/Apprentice'
 
 
 call vundle#end()
@@ -77,7 +74,7 @@ set list
 set splitright
 let mapleader = ","
 let macvim_skip_colorscheme=1
-colorscheme desert
+colorscheme apprentice
 
 " Activate indentation
 filetype plugin indent on
