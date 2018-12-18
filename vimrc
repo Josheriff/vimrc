@@ -46,14 +46,13 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
 " Variables colorized
-Plugin 'jsenin/semantic-highlight.vim'
+" Plugin 'jsenin/semantic-highlight.vim'
 
 " Nova Scheme
 Plugin 'trevordmiller/nova-vim'
 
 " 16 color scheme
-Plugin 'noahfrederick/vim-noctu'
-
+Plugin 'romainl/Apprentice'
 " Icons and fanzy fonts
 Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
@@ -82,9 +81,9 @@ set list
 set splitright
 let mapleader = ","
 let macvim_skip_colorscheme=1
-colorscheme nova
-"colorscheme desert
-
+" colorscheme nova
+colorscheme apprentice
+hi MatchParen cterm=bold ctermbg=none ctermfg=yellow
 " Activate indentation
 filetype plugin indent on
 
@@ -159,7 +158,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:15,results:15'
 let g:ctrlp_max_depth = 15
 let g:ctrlp_max_history = 5
-let g:ctrlp_working_path_mode = 'r'
+" let g:ctrlp_working_path_mode = 'r'
 
 " airline config
 set laststatus=2
