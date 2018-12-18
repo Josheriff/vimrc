@@ -75,7 +75,7 @@ set splitright
 let mapleader = ","
 let macvim_skip_colorscheme=1
 colorscheme apprentice
-
+hi MatchParen cterm=bold ctermbg=none ctermfg=yellow
 " Activate indentation
 filetype plugin indent on
 
